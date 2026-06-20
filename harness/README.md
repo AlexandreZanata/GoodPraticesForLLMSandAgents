@@ -15,8 +15,11 @@ Open in Cursor — `.cursor/rules/` loads automatically.
 Resolve rules for a task:
 
 ```bash
+./harness/rules-path.sh
 ./harness/resolve-rules.sh api endpoint auth
 ```
+
+Paths are configured in `harness/harness.config.yaml` (`rules/` here; `agent-rules/` after install into another project).
 
 ## Install in another project
 

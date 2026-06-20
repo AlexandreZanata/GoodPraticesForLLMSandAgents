@@ -5,7 +5,9 @@ alwaysApply: true
 
 # TOKEN ECONOMY
 
-Full rules: `rules/09-ai-agent-specific/token-economy.md`
+Resolve `{rules_dir}` first: `./harness/rules-path.sh`
+
+Full rules: `{rules_dir}/09-ai-agent-specific/token-economy.md`
 
 ## MUST
 
@@ -16,14 +18,15 @@ Full rules: `rules/09-ai-agent-specific/token-economy.md`
 
 ## NEVER
 
-- Load entire `rules/` for trivial edits.
+- Load entire `{rules_dir}/` for trivial edits.
 - Write paragraph explanations where a bullet or table suffices.
 - Repeat `AGENT-CORE-PRINCIPLES.md` in responses — cite section.
 
 ## Resolve rules
 
 ```bash
+./harness/rules-path.sh
 ./harness/resolve-rules.sh <keywords>
 ```
 
-See `rules/manifest.yaml` for trigger index.
+Manifest: `{rules_dir}/manifest.yaml` | Config: `harness/harness.config.yaml`

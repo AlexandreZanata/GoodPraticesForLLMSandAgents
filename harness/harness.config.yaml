@@ -1,0 +1,6 @@
+# Agent Harness path configuration (harness repo defaults)
+# Copied to agent-harness/ on install with rules_dir: agent-rules
+
+rules_dir: rules
+harness_dir: harness
+cursor_rules_dir: .cursor/rules

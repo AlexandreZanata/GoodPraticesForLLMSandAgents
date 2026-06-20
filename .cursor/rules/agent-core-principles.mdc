@@ -5,7 +5,18 @@ alwaysApply: true
 
 # AGENT CORE PRINCIPLES
 
-> When code conflicts with rules, **rules prevail**. Full doc: `rules/AGENT-CORE-PRINCIPLES.md`
+> When code conflicts with rules, **rules prevail**.
+
+## Rules path
+
+Read `harness/harness.config.yaml` → `rules_dir`, or run `./harness/rules-path.sh`.
+
+| Context | `rules_dir` |
+|---------|-------------|
+| This harness repo | `rules/` |
+| After `install.sh` in another project | `agent-rules/` |
+
+Full doc: `{rules_dir}/AGENT-CORE-PRINCIPLES.md`
 
 ## Absolute rules (summary)
 
@@ -26,6 +37,9 @@ alwaysApply: true
 
 ## Extended rules
 
-Load on demand: `./harness/resolve-rules.sh <task keywords>` — security: `owasp agentic authz`
+```bash
+./harness/rules-path.sh
+./harness/resolve-rules.sh owasp agentic authz   # or ./agent-harness/ after install
+```
 
-Security index: `rules/03-security/README.md` | OWASP 2025 | Agentic 2026 ASI01–ASI10
+Security index: `{rules_dir}/03-security/README.md`

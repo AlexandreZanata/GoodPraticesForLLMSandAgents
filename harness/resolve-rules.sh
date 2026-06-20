@@ -6,9 +6,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-ROOT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
-MANIFEST="$ROOT_DIR/rules/manifest.yaml"
-RULES_DIR="$ROOT_DIR/rules"
+RULES_DIR="$("$SCRIPT_DIR/rules-path.sh")"
+MANIFEST="$RULES_DIR/manifest.yaml"
 
 if [[ ! -f "$MANIFEST" ]]; then
   echo "manifest not found: $MANIFEST" >&2

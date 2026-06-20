@@ -23,4 +23,11 @@ ALL agent output MUST be 100% English: code identifiers, comments, docs, commits
 
 ## Rules source
 
-Modular rules: `rules/` + `rules/manifest.yaml`. Load via triggers — see `context-discipline.mdc`.
+Path: `./harness/rules-path.sh` → `{rules_dir}/` + `{rules_dir}/manifest.yaml`.
+
+| Context | `rules_dir` |
+|---------|-------------|
+| Harness repo | `rules/` |
+| Installed project | `agent-rules/` |
+
+Load via triggers — see `context-discipline.mdc`.
