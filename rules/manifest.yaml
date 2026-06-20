@@ -96,7 +96,7 @@ rules:
 
   - id: sec.authz
     path: 03-security/authorization.md
-    triggers: [authorization, authz, permission, rbac, abac, bola, access-control]
+    triggers: [authorization, authz, permission, rbac, abac, bola, bfla, access-control]
 
   - id: sec.misconfig
     path: 03-security/security-misconfiguration.md
@@ -128,7 +128,63 @@ rules:
 
   - id: sec.audit
     path: 03-security/audit-logging.md
-    triggers: [audit, security-log, compliance]
+    triggers: [audit, security-log, compliance, alerting, owasp]
+
+  - id: sec.insecure-design
+    path: 03-security/insecure-design.md
+    triggers: [insecure-design, threat-model, abuse-case, owasp, a06]
+
+  - id: sec.integrity
+    path: 03-security/software-data-integrity.md
+    triggers: [integrity, signature, deserialization, webhook, owasp, a08]
+
+  - id: sec.owasp-index
+    path: 03-security/OWASP-TOP10-2025.md
+    triggers: [owasp, owasp2025, top10, security-review]
+
+  - id: sec.agentic-index
+    path: 03-security/OWASP-AGENTIC-2026.md
+    triggers: [agentic, owasp-agentic, asi, ai-agent, mcp]
+
+  - id: sec.agentic.asi01
+    path: 03-security/agentic/agent-goal-hijack.md
+    triggers: [agentic, goal-hijack, prompt-injection, asi01]
+
+  - id: sec.agentic.asi02
+    path: 03-security/agentic/tool-misuse.md
+    triggers: [agentic, tool-misuse, mcp, asi02]
+
+  - id: sec.agentic.asi03
+    path: 03-security/agentic/identity-privilege-abuse.md
+    triggers: [agentic, agent-identity, asi03]
+
+  - id: sec.agentic.asi04
+    path: 03-security/agentic/agentic-supply-chain.md
+    triggers: [agentic, skill, rule-pack, asi04]
+
+  - id: sec.agentic.asi05
+    path: 03-security/agentic/unexpected-code-execution.md
+    triggers: [agentic, code-execution, sandbox, asi05]
+
+  - id: sec.agentic.asi06
+    path: 03-security/agentic/memory-context-poisoning.md
+    triggers: [agentic, memory, rag, context-poison, asi06]
+
+  - id: sec.agentic.asi07
+    path: 03-security/agentic/insecure-inter-agent-communication.md
+    triggers: [agentic, multi-agent, inter-agent, asi07]
+
+  - id: sec.agentic.asi08
+    path: 03-security/agentic/cascading-failures.md
+    triggers: [agentic, cascade, circuit-breaker, asi08]
+
+  - id: sec.agentic.asi09
+    path: 03-security/agentic/human-agent-trust-exploitation.md
+    triggers: [agentic, social-engineering, human-confirm, asi09]
+
+  - id: sec.agentic.asi10
+    path: 03-security/agentic/rogue-agents.md
+    triggers: [agentic, rogue, monitoring, kill-switch, asi10]
 
   - id: test.tdd
     path: 04-testing/tdd.md

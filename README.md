@@ -11,7 +11,8 @@ Open-source **Agent Harness** — enterprise-grade, stack-agnostic rules for cod
 A modular rule library + tooling that gives AI coding agents:
 
 - Layered domain-driven architecture constraints
-- OWASP 2025-aligned security rules
+- OWASP Top 10:2025-aligned security rules (web/API, current through 2026)
+- OWASP Agentic Top 10:2026 (ASI01–ASI10) for tool-using AI agents
 - TDD pyramid and coverage gates
 - Token-efficient conditional loading (load 2–6 rules, not 61)
 
@@ -63,7 +64,7 @@ See `rules/09-ai-agent-specific/token-economy.md`.
 
 - **Layers:** Interfaces → Application → Domain ← Infrastructure
 - **Domain:** business rules, state machines, immutable events
-- **Security:** default-deny, BOLA prevention, supply chain, misconfiguration
+- **Security:** OWASP Top 10:2025-aligned rules + OWASP Agentic 2026 (ASI01–ASI10)
 - **Testing:** 75% unit / 20% integration / 5% E2E; Domain ≥ 90% coverage
 - **AI agents:** Application Layer only; read-only; human confirm to persist
 

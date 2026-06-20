@@ -169,6 +169,23 @@ When the system integrates LLMs or AI agents:
 - AI responses are always marked as suggestions — never as definitive truth.
 - Personal and sensitive data is never sent to the LLM. Only aggregated or anonymized data.
 
+### OWASP Agentic Applications:2026 (ASI01–ASI10)
+
+For autonomous or tool-using agents, also enforce `rules/03-security/OWASP-AGENTIC-2026.md`:
+
+- ASI01 Agent Goal Hijack — untrusted content cannot override goals
+- ASI02 Tool Misuse — allow-listed tools, scoped permissions
+- ASI03 Identity and Privilege Abuse — scoped agent credentials
+- ASI04 Agentic Supply Chain — verify MCP servers, skills, rule packs
+- ASI05 Unexpected Code Execution — no auto-run of agent-generated code on prod
+- ASI06 Memory and Context Poisoning — versioned rules; no agent self-write to memory
+- ASI07 Insecure Inter-Agent Communication — authenticate agent messages
+- ASI08 Cascading Failures — circuit breakers, step limits
+- ASI09 Human-Agent Trust Exploitation — human confirm for destructive actions
+- ASI10 Rogue Agents — monitoring, kill switch, audit trail
+
+Web/API security: **OWASP Top 10:2025-aligned** rules in `rules/03-security/` (current through 2026).
+
 ---
 
 ## 14. MINIMUM PROJECT GLOSSARY

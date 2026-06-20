@@ -7,6 +7,7 @@ triggers:
   - rbac
   - abac
   - bola
+  - bfla
   - access-control
 alwaysApply: false
 ---
@@ -31,6 +32,18 @@ RIGHT: GET /orders/{id}  → return order if user owns order OR has role X on te
 
 - Resolve resource → check actor relationship to that resource (owner, tenant member, role on resource).
 - NEVER use sequential/predictable IDs alone as security (use UUIDs + authorization check).
+
+## BFLA — Broken Function Level Authorization
+
+> Verify the role may invoke this **function** — not only access this object.
+
+```text
+WRONG: POST /admin/users  → any authenticated user
+RIGHT: POST /admin/users  → Admin role only (function-level check)
+```
+
+- Admin/export/bulk-delete endpoints: explicit role gate independent of object ID.
+- Hide UI is not control — enforce on server.
 
 ## RBAC + ABAC
 

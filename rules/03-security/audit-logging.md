@@ -4,11 +4,19 @@ triggers:
   - audit
   - security-log
   - compliance
+  - alerting
+  - owasp
 alwaysApply: false
 ---
-# Audit Logging
+# Audit Logging and Alerting
 
-> Security-relevant events logged with actor and action — never log sensitive payload.
+> OWASP A09:2025 — Security Logging **and Alerting** Failures. Log + alert — not log alone.
+
+## Agent one-liners
+
+- Every security audit event MUST have a defined alert path for critical severity.
+- Logging without alerting is insufficient for incident detection (OWASP 2025/2026).
+- Alert on: repeated auth failure, privilege escalation, bulk export, agent policy violation.
 
 ## MUST audit
 

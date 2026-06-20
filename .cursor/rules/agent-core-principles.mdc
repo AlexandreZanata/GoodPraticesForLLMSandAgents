@@ -19,13 +19,13 @@ alwaysApply: true
 8. RBAC + ABAC in Application; tenant isolation every request.
 9. Document use cases before code.
 10. Versioned APIs (`/v1/`), structured errors, domain resource names.
-11. Security from day one: MFA, rate limits, TLS, LGPD/GDPR.
+11. Security: OWASP Top 10:2025-aligned + Agentic 2026 (ASI01–ASI10); MFA, rate limits, TLS, LGPD/GDPR.
 12. TDD pyramid: 75% unit / 20% integration / 5% E2E. Domain ≥ 90% coverage.
 13. AI in Application only: read-only, human confirm to persist, log all LLM calls.
 14. Ubiquitous language: match glossary exactly.
 
 ## Extended rules
 
-Load on demand: `./harness/resolve-rules.sh <task keywords>` or match `triggers` in rule frontmatter.
+Load on demand: `./harness/resolve-rules.sh <task keywords>` — security: `owasp agentic authz`
 
-Index: `rules/STRUCTURE.md` | Manifest: `rules/manifest.yaml`
+Security index: `rules/03-security/README.md` | OWASP 2025 | Agentic 2026 ASI01–ASI10
