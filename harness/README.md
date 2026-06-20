@@ -53,6 +53,15 @@ Symlink keeps rules in sync with submodule updates.
 
 Copies only `.cursor/rules/` — use when rules live elsewhere.
 
+### Option D — New project bootstrap (templates + harness)
+
+```bash
+./harness/bootstrap-project.sh /path/to/new-project
+# Or symlink mode: ./harness/bootstrap-project.sh /path/to/new-project --symlink
+```
+
+Creates `docs/` templates (glossary, API contract, use case, checklist) and installs the harness.
+
 ## Conditional loading (token economy)
 
 Each rule file has YAML frontmatter with `triggers`:

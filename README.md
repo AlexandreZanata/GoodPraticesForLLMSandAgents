@@ -80,7 +80,10 @@ Full contract: [rules/AGENT-CORE-PRINCIPLES.md](rules/AGENT-CORE-PRINCIPLES.md)
 ## Install in your project
 
 ```bash
-# Submodule (recommended)
+# New AI-assisted project (docs templates + harness)
+./harness/bootstrap-project.sh /path/to/new-project
+
+# Existing project (harness only)
 git submodule add <this-repo-url> .agent-harness
 ./.agent-harness/harness/install.sh . --symlink
 ```
