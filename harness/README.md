@@ -21,6 +21,15 @@ Resolve rules for a task:
 
 Paths are configured in `harness/harness.config.yaml` (`rules/` here; `agent-rules/` after install into another project).
 
+### Cursor task rule (optional)
+
+```bash
+./harness/generate-task-rules.sh api endpoint auth
+./harness/generate-task-rules.sh --clean   # when task done
+```
+
+Writes `.cursor/rules/_task-active.mdc` from manifest triggers.
+
 ## Install in another project
 
 ### Option A — Copy (standalone)

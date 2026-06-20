@@ -73,6 +73,7 @@ assert_file "$HARNESS_DIR/rules-path.sh"
 assert_file "$HARNESS_DIR/resolve-rules.sh"
 assert_file "$HARNESS_DIR/install.sh"
 assert_file "$HARNESS_DIR/bootstrap-project.sh"
+assert_file "$HARNESS_DIR/generate-task-rules.sh"
 assert_file "$HARNESS_DIR/inject-frontmatter.py"
 assert_file "$ROOT/rules/manifest.yaml"
 assert_file "$ROOT/AGENTS.md"
@@ -103,6 +104,34 @@ if python3 "$HARNESS_DIR/inject-frontmatter.py" >/dev/null 2>&1; then
   pass "inject-frontmatter.py exits 0"
 else
   fail "inject-frontmatter.py failed"
+fi
+
+# --- generate-task-rules.sh ---
+TASK_MDC="$ROOT/.cursor/rules/_task-active.mdc"
+rm -f "$TASK_MDC"
+if "$HARNESS_DIR/generate-task-rules.sh" api auth >/dev/null 2>&1; then
+  assert_file "$TASK_MDC"
+else
+  fail "generate-task-rules.sh api auth failed"
+fi
+if grep -qF "03-security/authorization.md" "$TASK_MDC"; then
+  pass "generate-task-rules.sh includes authorization.md"
+else
+  fail "generate-task-rules.sh missing authorization.md in output"
+fi
+RESOLVED_GEN="$("$HARNESS_DIR/resolve-rules.sh" api auth)"
+while IFS= read -r rel; do
+  [[ -z "$rel" ]] && continue
+  if grep -qF "$rel" "$TASK_MDC"; then
+    pass "generate-task-rules lists $rel"
+  else
+    fail "generate-task-rules missing $rel"
+  fi
+done <<< "$RESOLVED_GEN"
+if "$HARNESS_DIR/generate-task-rules.sh" --clean >/dev/null 2>&1 && [[ ! -f "$TASK_MDC" ]]; then
+  pass "generate-task-rules.sh --clean removes _task-active.mdc"
+else
+  fail "generate-task-rules.sh --clean failed"
 fi
 
 # --- manifest paths exist ---

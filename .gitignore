@@ -1,5 +1,6 @@
 # Optional project-specific overrides (not part of harness)
 .local/
+.cursor/rules/_task-active.mdc
 
 # Environment and secrets
 .env

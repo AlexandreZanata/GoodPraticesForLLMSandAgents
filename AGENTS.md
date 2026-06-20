@@ -66,6 +66,22 @@ Load **2–6 files only** — not the entire rule tree.
 
 Match rule file `triggers:` in YAML frontmatter, or use output from `resolve-rules.sh`.
 
+### Cursor: task-scoped rule file (optional)
+
+Generate a temporary `.mdc` so Cursor surfaces the resolved rules for this task:
+
+```bash
+./harness/generate-task-rules.sh api endpoint auth
+# Installed project: ./agent-harness/generate-task-rules.sh api endpoint auth
+```
+
+Creates `.cursor/rules/_task-active.mdc` (`alwaysApply: false`). **Delete when done:**
+
+```bash
+./harness/generate-task-rules.sh --clean
+# or: rm .cursor/rules/_task-active.mdc
+```
+
 **Index:** `{rules_dir}/STRUCTURE.md`  
 **Manifest:** `{rules_dir}/manifest.yaml`  
 **Security map:** `{rules_dir}/03-security/README.md`
