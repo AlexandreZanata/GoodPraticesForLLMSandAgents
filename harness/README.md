@@ -100,7 +100,10 @@ After editing `rules/manifest.yaml`:
 ```bash
 pip install -r harness/requirements.txt
 python3 harness/inject-frontmatter.py
+./harness/tests/smoke.sh
 ```
+
+Run **`./harness/tests/smoke.sh` before every release** (or after changing manifest, resolve-rules, install, or bootstrap scripts).
 
 ## Compatible agents
 
