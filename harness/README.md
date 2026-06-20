@@ -26,8 +26,8 @@ Paths are configured in `harness/harness.config.yaml` (`rules/` here; `agent-rul
 ### Option A — Copy (standalone)
 
 ```bash
-git clone https://github.com/<you>/GoodPracticesForLLMsAndAgents.git
-./GoodPracticesForLLMsAndAgents/harness/install.sh /path/to/your-project
+git clone https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents.git
+./GoodPraticesForLLMSandAgents/harness/install.sh /path/to/your-project
 ```
 
 Installs:
@@ -39,7 +39,7 @@ Installs:
 
 ```bash
 cd /path/to/your-project
-git submodule add https://github.com/<you>/GoodPracticesForLLMsAndAgents.git .agent-harness
+git submodule add https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents.git .agent-harness
 ./.agent-harness/harness/install.sh . --symlink
 ```
 

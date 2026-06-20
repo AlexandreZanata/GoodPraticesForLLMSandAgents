@@ -65,8 +65,8 @@ All files under `rules/` include YAML frontmatter with `triggers`. See `manifest
 ## Install in another project
 
 ```bash
-git submodule add <repo-url> agent-harness-src
-./agent-harness-src/harness/install.sh /path/to/your-project
+git submodule add https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents.git .agent-harness
+./.agent-harness/harness/install.sh .
 ```
 
 Or copy mode: `./harness/install.sh /path/to/your-project`

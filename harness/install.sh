@@ -98,7 +98,7 @@ Rules path:
   $TARGET/agent-harness/rules-path.sh
 
 Optional: add submodule instead of copy
-  git submodule add <this-repo-url> agent-harness-src
+  git submodule add https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents.git agent-harness-src
   ./agent-harness-src/harness/install.sh . --symlink
 
 EOF

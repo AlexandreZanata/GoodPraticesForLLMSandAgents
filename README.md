@@ -85,7 +85,7 @@ Full contract: [rules/AGENT-CORE-PRINCIPLES.md](rules/AGENT-CORE-PRINCIPLES.md)
 ./harness/bootstrap-project.sh /path/to/new-project
 
 # Existing project (harness only)
-git submodule add <this-repo-url> .agent-harness
+git submodule add https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents.git .agent-harness
 ./.agent-harness/harness/install.sh . --symlink
 ```
 

@@ -87,7 +87,7 @@ Match rule file `triggers:` in YAML frontmatter, or use output from `resolve-rul
 ## Install harness in another project
 
 ```bash
-git submodule add <repo-url> .agent-harness
+git submodule add https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents.git .agent-harness
 ./.agent-harness/harness/install.sh . --symlink
 ```
 
