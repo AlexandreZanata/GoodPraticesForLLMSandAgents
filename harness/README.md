@@ -4,6 +4,12 @@ Open-source harness for AI-assisted software projects. Drop into any repo to giv
 
 ## Quick start (this repo)
 
+Install Python dependencies (required for `resolve-rules.sh` and `inject-frontmatter.py`):
+
+```bash
+pip install -r harness/requirements.txt
+```
+
 Open in Cursor — `.cursor/rules/` loads automatically.
 
 Resolve rules for a task:
@@ -80,10 +86,9 @@ Base rules always loaded (see `rules/manifest.yaml` → `always_apply`):
 After editing `rules/manifest.yaml`:
 
 ```bash
+pip install -r harness/requirements.txt
 python3 harness/inject-frontmatter.py
 ```
-
-Requires PyYAML: `pip install pyyaml`
 
 ## Compatible agents
 

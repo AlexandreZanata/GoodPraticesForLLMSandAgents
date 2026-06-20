@@ -27,6 +27,7 @@ rules/                  # 61 modular rule files + manifest (open source)
 └── 00-core/ … 11-documentation-and-glossary/
 
 harness/                # Install + resolve tooling
+├── requirements.txt    # Python deps (PyYAML)
 ├── install.sh          # Install into any project
 ├── resolve-rules.sh    # Keywords → rule files
 └── inject-frontmatter.py
@@ -37,6 +38,9 @@ harness/                # Install + resolve tooling
 ## Quick start
 
 ```bash
+# Python deps for harness scripts (resolve-rules, inject-frontmatter)
+pip install -r harness/requirements.txt
+
 # Resolve rules for an API + auth task
 ./harness/resolve-rules.sh api endpoint auth
 
