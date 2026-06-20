@@ -1,0 +1,80 @@
+name: Harness CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    name: Harness smoke tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install harness dependencies
+        run: pip install -r harness/requirements.txt
+
+      - name: Run smoke tests
+        run: ./harness/tests/smoke.sh
+
+  validate-manifest:
+    name: Validate manifest paths
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install harness dependencies
+        run: pip install -r harness/requirements.txt
+
+      - name: Verify all manifest rule files exist
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import sys
+          import yaml
+
+          root = Path(".")
+          manifest_path = root / "rules" / "manifest.yaml"
+          rules_dir = root / "rules"
+          data = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+          missing = []
+
+          for path in data.get("always_apply", []):
+              if not (rules_dir / path).is_file():
+                  missing.append(path)
+
+          for entry in data.get("rules", []):
+              if not entry or not entry.get("path"):
+                  continue
+              path = entry["path"]
+              if not (rules_dir / path).is_file():
+                  missing.append(path)
+
+          if missing:
+              print("Missing manifest paths:", file=sys.stderr)
+              for p in missing:
+                  print(f"  - {p}", file=sys.stderr)
+              sys.exit(1)
+
+          print(
+              f"Manifest OK: {len(data.get('always_apply', []))} always_apply, "
+              f"{len(data.get('rules', []))} rules"
+          )
+          PY

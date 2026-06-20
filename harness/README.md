@@ -105,6 +105,8 @@ python3 harness/inject-frontmatter.py
 
 Run **`./harness/tests/smoke.sh` before every release** (or after changing manifest, resolve-rules, install, or bootstrap scripts).
 
+CI runs the same checks on every push/PR to `main` (see `.github/workflows/harness.yml`).
+
 ## Compatible agents
 
 | Agent | Integration |

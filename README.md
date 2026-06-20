@@ -1,6 +1,7 @@
 # Good Practices for LLMs and Agents
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Harness CI](https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents/actions/workflows/harness.yml/badge.svg)](https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents/actions/workflows/harness.yml)
 
 Open-source **Agent Harness** — enterprise-grade, stack-agnostic rules for coding agents and LLM-assisted projects.
 
