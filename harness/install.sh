@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+# Install Agent Harness into a target project.
+#
+# Usage:
+#   ./harness/install.sh /path/to/project          # copy mode (default)
+#   ./harness/install.sh /path/to/project --symlink
+#   ./harness/install.sh /path/to/project --cursor-only
+#
+# Installs:
+#   rules/              → $TARGET/agent-rules/   (or symlink)
+#   .cursor/rules/      → $TARGET/.cursor/rules/   (merged)
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+HARNESS_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+MODE="copy"
+CURSOR_ONLY=false
+
+if [[ $# -lt 1 ]]; then
+  echo "Usage: $0 <target-project-path> [--symlink] [--cursor-only]" >&2
+  exit 1
+fi
+
+TARGET="$(cd "$1" && pwd)"
+shift
+
+for arg in "$@"; do
+  case "$arg" in
+    --symlink) MODE="symlink" ;;
+    --cursor-only) CURSOR_ONLY=true ;;
+    *) echo "Unknown option: $arg" >&2; exit 1 ;;
+  esac
+done
+
+RULES_DEST="$TARGET/agent-rules"
+CURSOR_DEST="$TARGET/.cursor/rules"
+
+install_dir() {
+  local src="$1"
+  local dest="$2"
+  local name
+  name="$(basename "$dest")"
+
+  if [[ "$MODE" == "symlink" ]]; then
+    mkdir -p "$(dirname "$dest")"
+    if [[ -e "$dest" ]]; then
+      echo "SKIP $dest already exists"
+    else
+      ln -s "$src" "$dest"
+      echo "LINK $dest -> $src"
+    fi
+  else
+    mkdir -p "$dest"
+    if command -v rsync >/dev/null 2>&1; then
+      rsync -a --delete "$src/" "$dest/"
+    else
+      rm -rf "$dest"
+      cp -a "$src" "$dest"
+    fi
+    echo "COPY $src -> $dest"
+  fi
+}
+
+if [[ "$CURSOR_ONLY" == false ]]; then
+  install_dir "$HARNESS_ROOT/rules" "$RULES_DEST"
+  install_dir "$HARNESS_ROOT/harness" "$TARGET/agent-harness"
+fi
+
+mkdir -p "$CURSOR_DEST"
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a "$HARNESS_ROOT/.cursor/rules/" "$CURSOR_DEST/"
+else
+  cp -a "$HARNESS_ROOT/.cursor/rules/." "$CURSOR_DEST/"
+fi
+echo "MERGE $HARNESS_ROOT/.cursor/rules/ -> $CURSOR_DEST/"
+
+cat <<EOF
+
+Agent Harness installed.
+
+  Rules:  $RULES_DEST
+  Cursor: $CURSOR_DEST
+
+Resolve rules for a task:
+  $TARGET/agent-harness/resolve-rules.sh api auth endpoint
+
+Optional: add submodule instead of copy
+  git submodule add <this-repo-url> agent-harness-src
+  ./agent-harness-src/harness/install.sh . --symlink
+
+EOF

@@ -1,0 +1,17 @@
+# Optional project-specific overrides (not part of harness)
+.local/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS and IDE (non-Cursor)
+.DS_Store
+.idea/
+*.swp
+
+# Python tooling (harness scripts)
+__pycache__/
+.venv/
+venv/
