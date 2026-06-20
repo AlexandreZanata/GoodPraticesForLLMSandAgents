@@ -4,6 +4,8 @@
 
 Open-source **Agent Harness** — enterprise-grade, stack-agnostic rules for coding agents and LLM-assisted projects.
 
+**For coding agents:** start with **[AGENTS.md](AGENTS.md)** — universal entry point (Cursor, Claude Code, Codex, etc.).
+
 **Language policy:** 100% English — code, docs, comments, commits, and agent output.
 
 ## What this is
@@ -21,7 +23,8 @@ Use as a **git submodule**, **copy**, or **fork** in any project.
 ## Repository layout
 
 ```
-rules/                  # 61 modular rule files + manifest (open source)
+rules/                  # Modular rule files + manifest (open source)
+AGENTS.md               # Universal entry point for all coding agents
 ├── manifest.yaml       # Trigger index for conditional loading
 ├── AGENT-CORE-PRINCIPLES.md
 └── 00-core/ … 11-documentation-and-glossary/
