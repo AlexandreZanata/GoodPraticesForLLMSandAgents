@@ -45,6 +45,20 @@ Read these files at session start or before non-trivial work:
 
 Cursor users: `.cursor/rules/*.mdc` applies automatically (`alwaysApply`).
 
+### Headroom (optional — context compression)
+
+Third-party [Headroom](https://github.com/headroomlabs-ai/headroom) (Apache 2.0) complements token economy by compressing tool outputs before the LLM.
+
+```bash
+# Harness repo
+./integrations/headroom/setup.sh --wrap
+
+# Installed project
+./agent-integrations/headroom/setup.sh --wrap
+```
+
+See `integrations/headroom/README.md` or `agent-integrations/headroom/README.md`.
+
 ---
 
 ## Conditional load (task-specific)
@@ -122,6 +136,8 @@ Full install docs: [harness/README.md](harness/README.md)
 | [rules/03-security/OWASP-TOP10-2025.md](rules/03-security/OWASP-TOP10-2025.md) | Web/API security (A01–A10) |
 | [rules/03-security/OWASP-AGENTIC-2026.md](rules/03-security/OWASP-AGENTIC-2026.md) | Agentic AI security (ASI01–ASI10) |
 | [harness/README.md](harness/README.md) | Install, resolve, maintenance |
+| [integrations/headroom/README.md](integrations/headroom/README.md) | Headroom compression (Apache 2.0) |
+| [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | Third-party licenses |
 | [README.md](README.md) | Human-oriented project overview |
 
 ---

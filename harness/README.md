@@ -42,7 +42,11 @@ git clone https://github.com/AlexandreZanata/GoodPraticesForLLMSandAgents.git
 Installs:
 - `your-project/agent-rules/` — full rule library
 - `your-project/agent-harness/` — resolve + utilities
-- `your-project/.cursor/rules/` — Cursor entry points (merged)
+- `your-project/agent-integrations/headroom/` — Headroom setup (Apache 2.0, optional `pip install`)
+- `your-project/.cursor/rules/` — Cursor entry points (merged, includes `headroom-integration.mdc`)
+- `your-project/THIRD_PARTY_NOTICES.md` — Apache 2.0 attribution for Headroom
+
+Skip Headroom integration: `./harness/install.sh /path/to/project --skip-headroom`
 
 ### Option B — Submodule (recommended)
 
@@ -69,7 +73,30 @@ Copies only `.cursor/rules/` — use when rules live elsewhere.
 # Or symlink mode: ./harness/bootstrap-project.sh /path/to/new-project --symlink
 ```
 
-Creates `docs/` templates (glossary, API contract, use case, checklist) and installs the harness.
+Creates `docs/` templates (glossary, API contract, use case, checklist) and installs the harness + Headroom integration docs.
+
+## Headroom (context compression)
+
+Optional third-party layer — [Headroom](https://github.com/headroomlabs-ai/headroom) (Apache 2.0).
+
+| Location (harness repo) | Location (installed project) |
+|-------------------------|------------------------------|
+| `integrations/headroom/` | `agent-integrations/headroom/` |
+
+```bash
+# One-time per machine (Python 3.10+)
+./integrations/headroom/setup.sh
+./integrations/headroom/setup.sh --wrap    # prints Cursor config to paste
+
+# Installed project
+./agent-integrations/headroom/setup.sh --wrap
+```
+
+**Modes:**
+- `headroom wrap cursor` — paste config once in Cursor settings
+- `headroom proxy --port 8787` — drop-in proxy, any OpenAI-compatible client
+
+Attribution: [integrations/headroom/ATTRIBUTION.md](../integrations/headroom/ATTRIBUTION.md) · [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)
 
 ## Conditional loading (token economy)
 
@@ -120,7 +147,7 @@ CI runs the same checks on every push/PR to `main` (see `.github/workflows/harne
 
 | Agent | Integration |
 |-------|-------------|
-| **Cursor** | `.cursor/rules/*.mdc` (alwaysApply) + load `rules/` on demand |
+| **Cursor** | `.cursor/rules/*.mdc` (alwaysApply) + load `rules/` on demand + optional Headroom wrap |
 | **Claude Code / CLI** | Point to resolved rule files from `resolve-rules.sh` |
 | **Custom pipeline** | Parse `manifest.yaml` triggers in your orchestrator |
 

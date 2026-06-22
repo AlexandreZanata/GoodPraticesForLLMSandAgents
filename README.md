@@ -18,6 +18,7 @@ A modular rule library + tooling that gives AI coding agents:
 - OWASP Agentic Top 10:2026 (ASI01–ASI10) for tool-using AI agents
 - TDD pyramid and coverage gates
 - Token-efficient conditional loading (load 2–6 rules, not 61)
+- Optional **[Headroom](https://github.com/headroomlabs-ai/headroom)** integration — context compression for Cursor (Apache 2.0)
 
 Use as a **git submodule**, **copy**, or **fork** in any project.
 
@@ -32,9 +33,12 @@ AGENTS.md               # Universal entry point for all coding agents
 
 harness/                # Install + resolve tooling
 ├── requirements.txt    # Python deps (PyYAML)
-├── install.sh          # Install into any project
+├── install.sh          # Install into any project (+ Headroom integration)
 ├── resolve-rules.sh    # Keywords → rule files
 └── inject-frontmatter.py
+
+integrations/           # Optional third-party integrations (Apache 2.0 attribution)
+└── headroom/           # Context compression for Cursor/agents
 
 .cursor/rules/          # Cursor alwaysApply entry points
 ```
@@ -53,6 +57,17 @@ pip install -r harness/requirements.txt
 ```
 
 Open in **Cursor** — `.cursor/rules/` applies automatically.
+
+### Headroom (optional context compression)
+
+Compresses tool outputs and context before the LLM — **60–95% fewer tokens**. Apache 2.0 third-party:
+
+```bash
+./integrations/headroom/setup.sh
+./integrations/headroom/setup.sh --wrap   # Cursor one-time config
+```
+
+Docs: [integrations/headroom/README.md](integrations/headroom/README.md) · Attribution: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 
 Full harness docs: [harness/README.md](harness/README.md)
 
@@ -98,3 +113,5 @@ Add project-specific rules in `.local/` (gitignored) — layers on top without f
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+Third-party: [Headroom](https://github.com/headroomlabs-ai/headroom) (Apache 2.0) — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

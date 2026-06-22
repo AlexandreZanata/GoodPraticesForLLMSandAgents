@@ -77,6 +77,11 @@ assert_file "$HARNESS_DIR/generate-task-rules.sh"
 assert_file "$HARNESS_DIR/inject-frontmatter.py"
 assert_file "$ROOT/rules/manifest.yaml"
 assert_file "$ROOT/AGENTS.md"
+assert_file "$ROOT/THIRD_PARTY_NOTICES.md"
+assert_dir "$ROOT/integrations/headroom"
+assert_file "$ROOT/integrations/headroom/setup.sh"
+assert_file "$ROOT/integrations/headroom/ATTRIBUTION.md"
+assert_file "$ROOT/.cursor/rules/headroom-integration.mdc"
 
 # --- rules-path.sh ---
 RULES_PATH="$("$HARNESS_DIR/rules-path.sh")"
@@ -180,6 +185,14 @@ if "$HARNESS_DIR/bootstrap-project.sh" "$TMP" >/dev/null 2>&1; then
   assert_file "$TMP/docs/GLOSSARY.md"
   assert_dir "$TMP/agent-rules"
   assert_file "$TMP/agent-harness/harness.config.yaml"
+  assert_dir "$TMP/agent-integrations/headroom"
+  assert_file "$TMP/agent-integrations/headroom/setup.sh"
+  assert_file "$TMP/THIRD_PARTY_NOTICES.md"
+  if grep -qF "headroom_dir: agent-integrations/headroom" "$TMP/agent-harness/harness.config.yaml"; then
+    pass "harness.config.yaml includes headroom_dir"
+  else
+    fail "harness.config.yaml missing headroom_dir"
+  fi
 else
   fail "bootstrap-project.sh failed"
 fi

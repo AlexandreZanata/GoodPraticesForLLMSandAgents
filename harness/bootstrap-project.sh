@@ -83,11 +83,13 @@ Project bootstrapped: $TARGET
 Harness:
   agent-rules/
   agent-harness/
+  agent-integrations/headroom/   (Apache 2.0 — context compression)
   .cursor/rules/
 
 Next steps:
   1. Fill docs/NEW-PROJECT-CHECKLIST.md before coding
   2. Read AGENTS.md in agent sessions
   3. ./agent-harness/resolve-rules.sh <task keywords>
+  4. Optional: ./agent-integrations/headroom/setup.sh --wrap  (Cursor compression)
 
 EOF

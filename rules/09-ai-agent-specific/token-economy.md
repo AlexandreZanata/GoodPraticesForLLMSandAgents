@@ -81,3 +81,7 @@ Rationale belongs in human README — agent rules stay terse.
 1. Run `harness/resolve-rules.sh <keywords from task>`.
 2. Read `rules/STRUCTURE.md` task mapping if keywords unclear.
 3. State which rule files you loaded (brief list).
+
+## Headroom (optional — context compression)
+
+Harness rules reduce **what you load**. [Headroom](https://github.com/headroomlabs-ai/headroom) (Apache 2.0) compresses **what reaches the LLM** — tool outputs, logs, RAG chunks. Use both when configured: `integrations/headroom/setup.sh --wrap`.

@@ -3,4 +3,6 @@
 
 rules_dir: rules
 harness_dir: harness
+integrations_dir: integrations
 cursor_rules_dir: .cursor/rules
+headroom_dir: integrations/headroom
