@@ -10,16 +10,18 @@ This folder is merged into target projects by `harness/install.sh`.
 | `agent-core-principles.mdc` | Architecture contract summary |
 | `context-discipline.mdc` | Load only what the task needs |
 | `token-economy.mdc` | Token-efficient agent behavior |
-| `headroom-integration.mdc` | Optional Headroom compression (Apache 2.0) |
+| `ponytail.mdc` | YAGNI / minimal implementation ([Ponytail](https://github.com/DietrichGebert/ponytail), MIT) |
 
 ## Task-scoped (generated)
 
 `generate-task-rules.sh` writes `_task-active.mdc` — delete when the task is done.
 
-## Headroom setup (human, once per machine)
+## Ponytail (static rules)
+
+Always-on via `ponytail.mdc`. Task-scoped detail:
 
 ```bash
-./integrations/headroom/setup.sh --wrap
+./harness/resolve-rules.sh yagni minimal ponytail
 ```
 
-Source: https://github.com/headroomlabs-ai/headroom (Apache 2.0)
+Attribution: [THIRD_PARTY_NOTICES.md](../THIRD_PARTY_NOTICES.md)

@@ -1,37 +1,41 @@
 # Third-Party Notices
 
-This repository may integrate with optional third-party software. The Agent Harness itself is **MIT** licensed (see [LICENSE](LICENSE)).
+This repository may include adapted guidance from third-party projects. The Agent Harness itself is **MIT** licensed (see [LICENSE](LICENSE)).
 
 ---
 
-## Headroom
+## Ponytail
 
 | | |
 |---|---|
-| **Project** | [Headroom](https://github.com/headroomlabs-ai/headroom) |
-| **Publisher** | Headroom Labs |
-| **License** | [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) |
-| **Purpose** | Local context compression for AI agents (60–95% token reduction) |
-| **Integration** | `integrations/headroom/` — setup scripts and docs only; Headroom is installed via `pip` |
+| **Project** | [Ponytail](https://github.com/DietrichGebert/ponytail) |
+| **Publisher** | Dietrich Gebert and contributors |
+| **License** | [MIT License](https://opensource.org/licenses/MIT) |
+| **Purpose** | YAGNI / minimal implementation ladder for AI agents |
+| **In this repo** | Static rules only — `.cursor/rules/ponytail.mdc`, `rules/09-ai-agent-specific/minimal-implementation.md` |
 
-### Apache 2.0 — Headroom
+Adapted from upstream Ponytail cursor rules. No proxy, plugin, or MCP components are bundled.
+
+### MIT — Ponytail
 
 ```
-Copyright 2024-2026 Headroom Labs and contributors
+Copyright (c) Dietrich Gebert and Ponytail contributors
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-    http://www.apache.org/licenses/LICENSE-2.0
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```
-
-Full attribution: [integrations/headroom/ATTRIBUTION.md](integrations/headroom/ATTRIBUTION.md)
-
-Install: `pip install "headroom-ai[all]"` or `./integrations/headroom/setup.sh`

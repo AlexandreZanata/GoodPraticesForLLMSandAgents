@@ -286,6 +286,10 @@ rules:
     path: 09-ai-agent-specific/incremental-verification.md
     triggers: [incremental, lint, verify]
 
+  - id: ai.minimal
+    path: 09-ai-agent-specific/minimal-implementation.md
+    triggers: [ponytail, yagni, minimal, simplify, over-engineering, delete, reuse, stdlib]
+
   - id: api.rest
     path: 10-api-design/rest-conventions.md
     triggers: [api, rest, endpoint, http, controller, route]

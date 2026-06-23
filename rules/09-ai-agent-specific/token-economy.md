@@ -82,6 +82,6 @@ Rationale belongs in human README — agent rules stay terse.
 2. Read `rules/STRUCTURE.md` task mapping if keywords unclear.
 3. State which rule files you loaded (brief list).
 
-## Headroom (optional — context compression)
+## Ponytail (YAGNI — static rules)
 
-Harness rules reduce **what you load**. [Headroom](https://github.com/headroomlabs-ai/headroom) (Apache 2.0) compresses **what reaches the LLM** — tool outputs, logs, RAG chunks. Use both when configured: `integrations/headroom/setup.sh --wrap`.
+[Ponytail](https://github.com/DietrichGebert/ponytail) (MIT) minimizes **lines of code written** via `.cursor/rules/ponytail.mdc` and `minimal-implementation.md`. Harness security/TDD prevail on conflict.

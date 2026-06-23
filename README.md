@@ -18,9 +18,9 @@ A modular rule library + tooling that gives AI coding agents:
 - OWASP Agentic Top 10:2026 (ASI01–ASI10) for tool-using AI agents
 - TDD pyramid and coverage gates
 - Token-efficient conditional loading (load 2–6 rules, not 61)
-- Optional **[Headroom](https://github.com/headroomlabs-ai/headroom)** integration — context compression for Cursor (Apache 2.0)
+- **[Ponytail](https://github.com/DietrichGebert/ponytail)**-inspired YAGNI rules — static, no plugins (MIT attribution)
 
-Use as a **git submodule**, **copy**, or **fork** in any project.
+Use as a **git submodule**, **copy**, or **fork** in any project. Optimized for **Cursor** with `.cursor/rules/` — no API proxy or external tooling required.
 
 ## Repository layout
 
@@ -33,14 +33,11 @@ AGENTS.md               # Universal entry point for all coding agents
 
 harness/                # Install + resolve tooling
 ├── requirements.txt    # Python deps (PyYAML)
-├── install.sh          # Install into any project (+ Headroom integration)
+├── install.sh          # Install into any project
 ├── resolve-rules.sh    # Keywords → rule files
 └── inject-frontmatter.py
 
-integrations/           # Optional third-party integrations (Apache 2.0 attribution)
-└── headroom/           # Context compression for Cursor/agents
-
-.cursor/rules/          # Cursor alwaysApply entry points
+.cursor/rules/          # Cursor alwaysApply entry points (incl. ponytail.mdc)
 ```
 
 ## Quick start
@@ -52,22 +49,14 @@ pip install -r harness/requirements.txt
 # Resolve rules for an API + auth task
 ./harness/resolve-rules.sh api endpoint auth
 
+# YAGNI / minimal implementation (Ponytail-inspired)
+./harness/resolve-rules.sh yagni minimal ponytail
+
 # Install into another project
 ./harness/install.sh /path/to/your-project
 ```
 
-Open in **Cursor** — `.cursor/rules/` applies automatically.
-
-### Headroom (optional context compression)
-
-Compresses tool outputs and context before the LLM — **60–95% fewer tokens**. Apache 2.0 third-party:
-
-```bash
-./integrations/headroom/setup.sh
-./integrations/headroom/setup.sh --wrap   # Cursor one-time config
-```
-
-Docs: [integrations/headroom/README.md](integrations/headroom/README.md) · Attribution: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
+Open in **Cursor** — `.cursor/rules/` applies automatically (including `ponytail.mdc`).
 
 Full harness docs: [harness/README.md](harness/README.md)
 
@@ -80,6 +69,7 @@ Full harness docs: [harness/README.md](harness/README.md)
 | Short imperatives | `Never hardcode secrets` > paragraph |
 | Bullets/tables | Dense, parseable |
 | Reference, don't repeat | Glossary defines terms once |
+| Ponytail ladder (static) | Write minimum code; harness security/TDD still apply |
 
 See `rules/09-ai-agent-specific/token-economy.md`.
 
@@ -114,4 +104,4 @@ Add project-specific rules in `.local/` (gitignored) — layers on top without f
 
 MIT — see [LICENSE](LICENSE).
 
-Third-party: [Headroom](https://github.com/headroomlabs-ai/headroom) (Apache 2.0) — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+Third-party attribution: [Ponytail](https://github.com/DietrichGebert/ponytail) (MIT) — see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

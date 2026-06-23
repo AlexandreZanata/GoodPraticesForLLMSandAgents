@@ -78,10 +78,13 @@ assert_file "$HARNESS_DIR/inject-frontmatter.py"
 assert_file "$ROOT/rules/manifest.yaml"
 assert_file "$ROOT/AGENTS.md"
 assert_file "$ROOT/THIRD_PARTY_NOTICES.md"
-assert_dir "$ROOT/integrations/headroom"
-assert_file "$ROOT/integrations/headroom/setup.sh"
-assert_file "$ROOT/integrations/headroom/ATTRIBUTION.md"
-assert_file "$ROOT/.cursor/rules/headroom-integration.mdc"
+assert_file "$ROOT/.cursor/rules/ponytail.mdc"
+assert_file "$ROOT/rules/09-ai-agent-specific/minimal-implementation.md"
+if [[ ! -f "$ROOT/.cursor/rules/headroom-integration.mdc" ]]; then
+  pass "headroom-integration.mdc removed"
+else
+  fail "headroom-integration.mdc should be removed"
+fi
 
 # --- rules-path.sh ---
 RULES_PATH="$("$HARNESS_DIR/rules-path.sh")"
@@ -92,6 +95,11 @@ else
 fi
 
 # --- resolve-rules.sh ---
+assert_output_contains \
+  "resolve-rules yagni includes minimal-implementation.md" \
+  "09-ai-agent-specific/minimal-implementation.md" \
+  "$HARNESS_DIR/resolve-rules.sh" yagni minimal
+
 assert_output_contains \
   "resolve-rules api auth includes authorization.md" \
   "03-security/authorization.md" \
@@ -185,13 +193,16 @@ if "$HARNESS_DIR/bootstrap-project.sh" "$TMP" >/dev/null 2>&1; then
   assert_file "$TMP/docs/GLOSSARY.md"
   assert_dir "$TMP/agent-rules"
   assert_file "$TMP/agent-harness/harness.config.yaml"
-  assert_dir "$TMP/agent-integrations/headroom"
-  assert_file "$TMP/agent-integrations/headroom/setup.sh"
   assert_file "$TMP/THIRD_PARTY_NOTICES.md"
-  if grep -qF "headroom_dir: agent-integrations/headroom" "$TMP/agent-harness/harness.config.yaml"; then
-    pass "harness.config.yaml includes headroom_dir"
+  if [[ -f "$TMP/.cursor/rules/ponytail.mdc" ]]; then
+    pass "bootstrap installs ponytail.mdc in .cursor/rules"
   else
-    fail "harness.config.yaml missing headroom_dir"
+    fail "bootstrap missing ponytail.mdc"
+  fi
+  if [[ ! -d "$TMP/agent-integrations" ]]; then
+    pass "bootstrap does not create agent-integrations/"
+  else
+    fail "agent-integrations/ should not be created"
   fi
 else
   fail "bootstrap-project.sh failed"

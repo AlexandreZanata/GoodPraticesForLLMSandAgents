@@ -32,7 +32,7 @@
 
 - [ ] **Harness installed** — `agent-rules/`, `agent-harness/`, `.cursor/rules/`
 - [ ] **AGENTS.md** — copied or linked for agent session start
-- [ ] **Headroom (optional)** — `agent-integrations/headroom/setup.sh --wrap` for Cursor compression ([Apache 2.0](https://github.com/headroomlabs-ai/headroom))
+- [ ] **Ponytail (static)** — `.cursor/rules/ponytail.mdc` via harness install ([MIT](https://github.com/DietrichGebert/ponytail))
 
 ---
 

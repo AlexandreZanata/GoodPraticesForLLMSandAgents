@@ -43,21 +43,17 @@ Read these files at session start or before non-trivial work:
 2. `{rules_dir}/09-ai-agent-specific/token-economy.md` — load less, execute better
 3. `{rules_dir}/09-ai-agent-specific/anti-hallucination.md` — verify before assert
 
-Cursor users: `.cursor/rules/*.mdc` applies automatically (`alwaysApply`).
+Cursor users: `.cursor/rules/*.mdc` applies automatically (`alwaysApply`), including Ponytail YAGNI rules.
 
-### Headroom (optional — context compression)
+### Ponytail (YAGNI / minimal implementation)
 
-Third-party [Headroom](https://github.com/headroomlabs-ai/headroom) (Apache 2.0) complements token economy by compressing tool outputs before the LLM.
+Static rules inspired by [Ponytail](https://github.com/DietrichGebert/ponytail) (MIT) — no plugin or proxy. Always on in Cursor via `.cursor/rules/ponytail.mdc`.
 
 ```bash
-# Harness repo
-./integrations/headroom/setup.sh --wrap
-
-# Installed project
-./agent-integrations/headroom/setup.sh --wrap
+./harness/resolve-rules.sh yagni minimal ponytail
 ```
 
-See `integrations/headroom/README.md` or `agent-integrations/headroom/README.md`.
+Harness security and TDD rules **override** Ponytail when they conflict. Attribution: [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ---
 
@@ -136,7 +132,7 @@ Full install docs: [harness/README.md](harness/README.md)
 | [rules/03-security/OWASP-TOP10-2025.md](rules/03-security/OWASP-TOP10-2025.md) | Web/API security (A01–A10) |
 | [rules/03-security/OWASP-AGENTIC-2026.md](rules/03-security/OWASP-AGENTIC-2026.md) | Agentic AI security (ASI01–ASI10) |
 | [harness/README.md](harness/README.md) | Install, resolve, maintenance |
-| [integrations/headroom/README.md](integrations/headroom/README.md) | Headroom compression (Apache 2.0) |
+| [rules/09-ai-agent-specific/minimal-implementation.md](rules/09-ai-agent-specific/minimal-implementation.md) | Ponytail YAGNI ladder (MIT attribution) |
 | [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | Third-party licenses |
 | [README.md](README.md) | Human-oriented project overview |
 
