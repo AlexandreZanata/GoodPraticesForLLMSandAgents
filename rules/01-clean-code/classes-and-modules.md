@@ -29,10 +29,11 @@ alwaysApply: false
 - **Infrastructure:** DB repos, HTTP clients, message brokers — implements Domain/Application ports.
 - **Interfaces:** controllers, CLI, UI — thin adapters; no business rules.
 
-## Class size
+## File and class size
 
+- **Hard cap: 200 lines per file/module** — see `00-core/size-and-complexity-limits.md`.
 - Prefer many small types over few large ones.
-- If a class exceeds ~200 lines, evaluate split by responsibility before adding more methods.
+- If a file exceeds 200 lines, **split by responsibility** before adding more code.
 
 ## Agent action
 

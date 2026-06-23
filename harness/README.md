@@ -110,11 +110,12 @@ alwaysApply: false
 | Plain English imperatives | Fewer tokens, clearer execution |
 | Bullets/tables | Dense without prose overhead |
 | Reference over repeat | Glossary defines term once |
-| One-line limits | `Max function length: 30 lines` |
+| One-line limits | `80 lines/function`, `200 lines/file`, `cyclomatic ≤ 10` |
 
 Base rules always loaded (see `rules/manifest.yaml` → `always_apply`):
 
 - `AGENT-CORE-PRINCIPLES.md`
+- `size-and-complexity-limits.md`
 - `token-economy.md`
 - `anti-hallucination.md`
 

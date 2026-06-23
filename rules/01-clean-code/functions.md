@@ -15,9 +15,11 @@ alwaysApply: false
 
 | Metric | Target | Hard cap |
 |--------|--------|----------|
-| Lines per function | ≤ 20 | ≤ 30 |
+| Lines per function | ≤ 40 | **≤ 80** (never exceed) |
 | Parameters | ≤ 3 | ≤ 4 |
 | Return points | 1–2 (early guard + main) | 3 |
+
+Base rule: `00-core/size-and-complexity-limits.md` — **80 lines/function** is the universal ceiling on every project and language.
 
 ## Rules
 
@@ -36,4 +38,4 @@ alwaysApply: false
 
 ## Agent action
 
-If a generated function exceeds 30 lines or 4 params, **split before submitting** — do not leave "TODO: refactor" comments.
+If a generated function exceeds **80 lines** or 4 params, **split before submitting** — do not leave "TODO: refactor" comments.

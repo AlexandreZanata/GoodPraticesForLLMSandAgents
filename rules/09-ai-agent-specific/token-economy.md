@@ -51,8 +51,9 @@ Match task keywords to triggers — do not load unrelated files.
 
 | Rule | Format |
 |------|--------|
-| Max function length | `Max function length: 30 lines` |
-| Cyclomatic complexity | `Cyclomatic complexity: hard cap 10, target 5` |
+| Max function length | `Max function length: 80 lines` |
+| Max file length | `Max file length: 200 lines` |
+| Cyclomatic complexity | `Cyclomatic complexity: hard cap 10 per function` |
 | Default deny | `Authorization: default-deny, server-side only` |
 
 Rationale belongs in human README — agent rules stay terse.

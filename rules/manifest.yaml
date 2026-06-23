@@ -6,10 +6,15 @@ version: 1
 
 always_apply:
   - AGENT-CORE-PRINCIPLES.md
+  - 00-core/size-and-complexity-limits.md
   - 09-ai-agent-specific/token-economy.md
   - 09-ai-agent-specific/anti-hallucination.md
 
 rules:
+  - id: core.size-complexity
+    path: 00-core/size-and-complexity-limits.md
+    triggers: [size, complexity, cyclomatic, function, file, lint, typecheck, lines]
+
   - id: core.agent-behavior
     path: 00-core/agent-behavior.md
     triggers: [agent, behavior, scope, hallucination, conventions]

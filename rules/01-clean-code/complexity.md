@@ -15,9 +15,11 @@ alwaysApply: false
 
 | Metric | Target | Hard cap |
 |--------|--------|----------|
-| Cyclomatic complexity | ≤ 5 | **≤ 10** |
+| Cyclomatic complexity | ≤ 5 | **≤ 10** (never exceed) |
 | Nesting depth | ≤ 2 | **≤ 3** |
 | Branch count per function | ≤ 4 | ≤ 6 |
+
+Base rule: `00-core/size-and-complexity-limits.md` — cyclomatic **10** is the universal ceiling per function.
 
 ## Techniques (prefer in order)
 

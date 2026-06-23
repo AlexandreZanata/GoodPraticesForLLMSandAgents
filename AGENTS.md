@@ -40,8 +40,9 @@ Paths are relative to **project root**. Never hardcode `rules/` if `rules-path.s
 Read these files at session start or before non-trivial work:
 
 1. `{rules_dir}/AGENT-CORE-PRINCIPLES.md` — architecture contract
-2. `{rules_dir}/09-ai-agent-specific/token-economy.md` — load less, execute better
-3. `{rules_dir}/09-ai-agent-specific/anti-hallucination.md` — verify before assert
+2. `{rules_dir}/00-core/size-and-complexity-limits.md` — **80 lines/function, 200 lines/file, cyclomatic ≤10**
+3. `{rules_dir}/09-ai-agent-specific/token-economy.md` — load less, execute better
+4. `{rules_dir}/09-ai-agent-specific/anti-hallucination.md` — verify before assert
 
 Cursor users: `.cursor/rules/*.mdc` applies automatically (`alwaysApply`), including Ponytail YAGNI rules.
 
@@ -128,6 +129,7 @@ Full install docs: [harness/README.md](harness/README.md)
 | Document | Purpose |
 |----------|---------|
 | [rules/AGENT-CORE-PRINCIPLES.md](rules/AGENT-CORE-PRINCIPLES.md) | Domain architecture contract |
+| [rules/00-core/size-and-complexity-limits.md](rules/00-core/size-and-complexity-limits.md) | Universal size/complexity caps |
 | [rules/STRUCTURE.md](rules/STRUCTURE.md) | Full rule tree + task mapping |
 | [rules/03-security/OWASP-TOP10-2025.md](rules/03-security/OWASP-TOP10-2025.md) | Web/API security (A01–A10) |
 | [rules/03-security/OWASP-AGENTIC-2026.md](rules/03-security/OWASP-AGENTIC-2026.md) | Agentic AI security (ASI01–ASI10) |
