@@ -9,6 +9,7 @@ alwaysApply: false
 # Regression Safety
 
 > Every bug fix ships with a test that would have caught it.
+> **Prerequisite:** read `contract-first-tests.md` before writing any test.
 
 ## Rule
 

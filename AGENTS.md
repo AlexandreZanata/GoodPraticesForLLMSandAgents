@@ -41,8 +41,9 @@ Read these files at session start or before non-trivial work:
 
 1. `{rules_dir}/AGENT-CORE-PRINCIPLES.md` — architecture contract
 2. `{rules_dir}/00-core/size-and-complexity-limits.md` — **80 lines/function, 200 lines/file, cyclomatic ≤10**
-3. `{rules_dir}/09-ai-agent-specific/token-economy.md` — load less, execute better
-4. `{rules_dir}/09-ai-agent-specific/anti-hallucination.md` — verify before assert
+3. `{rules_dir}/04-testing/contract-first-tests.md` — **read before ANY test** (unit, integration, E2E)
+4. `{rules_dir}/09-ai-agent-specific/token-economy.md` — load less, execute better
+5. `{rules_dir}/09-ai-agent-specific/anti-hallucination.md` — verify before assert
 
 Cursor users: `.cursor/rules/*.mdc` applies automatically (`alwaysApply`), including Ponytail YAGNI rules.
 
@@ -74,6 +75,7 @@ Load **2–6 files only** — not the entire rule tree.
 | Domain feature | `domain layer state event` |
 | Bug fix | `bugfix regression error` |
 | Performance | `query cache n+1` |
+| **Tests (any type)** | `test contract unit integration e2e` — **read contract-first-tests.md first** |
 
 Match rule file `triggers:` in YAML frontmatter, or use output from `resolve-rules.sh`.
 
@@ -106,8 +108,9 @@ Creates `.cursor/rules/_task-active.mdc` (`alwaysApply: false`). **Delete when d
 3. State which rule files you loaded (brief list).
 4. **ASK** if AGENT-CORE-PRINCIPLES checklist items are blank — never assume business rules.
 5. Smallest diff; one logical change per commit.
-6. Verify after each edit — do not claim tests passed without running them.
-7. English only in all artifacts.
+6. **Before any test:** read `contract-first-tests.md`; assert contract, never mirror code.
+7. Verify after each edit — do not claim tests passed without running them.
+8. English only in all artifacts.
 
 ---
 
@@ -129,6 +132,8 @@ Full install docs: [harness/README.md](harness/README.md)
 | Document | Purpose |
 |----------|---------|
 | [rules/AGENT-CORE-PRINCIPLES.md](rules/AGENT-CORE-PRINCIPLES.md) | Domain architecture contract |
+| [rules/04-testing/contract-first-tests.md](rules/04-testing/contract-first-tests.md) | **Mandatory before any test** — contract, not mirror |
+| [rules/04-testing/test-pyramid.md](rules/04-testing/test-pyramid.md) | Unit 75% / integration 20% / E2E 5% automated |
 | [rules/00-core/size-and-complexity-limits.md](rules/00-core/size-and-complexity-limits.md) | Universal size/complexity caps |
 | [rules/STRUCTURE.md](rules/STRUCTURE.md) | Full rule tree + task mapping |
 | [rules/03-security/OWASP-TOP10-2025.md](rules/03-security/OWASP-TOP10-2025.md) | Web/API security (A01–A10) |

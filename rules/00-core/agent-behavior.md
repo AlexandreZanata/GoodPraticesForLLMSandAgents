@@ -20,6 +20,7 @@ alwaysApply: false
 - **ASK** exactly one clarifying question when ambiguity blocks a correct implementation.
 - **PRODUCE** the smallest diff that satisfies the request — no unrelated refactors.
 - **RUN** the smallest verification step after each meaningful change (lint, single test).
+- **READ** `04-testing/contract-first-tests.md` before creating, editing, or deleting any test.
 - **REFERENCE** existing utilities and patterns instead of reimplementing.
 
 ## NEVER

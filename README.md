@@ -18,6 +18,7 @@ A modular rule library + tooling that gives AI coding agents:
 - OWASP Agentic Top 10:2026 (ASI01–ASI10) for tool-using AI agents
 - TDD pyramid and coverage gates
 - **Universal size caps:** 80 lines/function, 200 lines/file, cyclomatic ≤10 (every language)
+- **Contract-first tests:** unit + integration + E2E automated; read policy before any test
 - Token-efficient conditional loading (load 2–6 rules, not 61)
 - **[Ponytail](https://github.com/DietrichGebert/ponytail)**-inspired YAGNI rules — static, no plugins (MIT attribution)
 
@@ -81,6 +82,7 @@ See `rules/09-ai-agent-specific/token-economy.md`.
 - **Security:** OWASP Top 10:2025-aligned rules + OWASP Agentic 2026 (ASI01–ASI10)
 - **Testing:** 75% unit / 20% integration / 5% E2E; Domain ≥ 90% coverage
 - **Size/complexity:** ≤80 lines/function, ≤200 lines/file, cyclomatic ≤10 — verify on every change
+- **Testing:** contract-first — unit 75% / integration 20% / E2E 5%, all automated in CI; never mirror code in tests
 - **AI agents:** Application Layer only; read-only; human confirm to persist
 
 Full contract: [rules/AGENT-CORE-PRINCIPLES.md](rules/AGENT-CORE-PRINCIPLES.md)

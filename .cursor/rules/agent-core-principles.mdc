@@ -35,6 +35,7 @@ Full doc: `{rules_dir}/AGENT-CORE-PRINCIPLES.md`
 13. AI in Application only: read-only, human confirm to persist, log all LLM calls.
 14. Ubiquitous language: match glossary exactly.
 15. **Size/complexity (universal):** ≤80 lines/function, ≤200 lines/file, cyclomatic ≤10 — verify on every change.
+16. **Tests:** read `contract-first-tests.md` before any test; unit + integration + E2E automated in CI; tests never mirror code.
 
 ## Extended rules
 

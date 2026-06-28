@@ -19,7 +19,7 @@ rules/
 │   ├── OWASP-TOP10-2025.md
 │   ├── OWASP-AGENTIC-2026.md
 │   └── agentic/                 # ASI01–ASI10 rule files
-├── 04-testing/                  # TDD, pyramid, coverage, regression
+├── 04-testing/                  # Contract-first, TDD, pyramid, E2E, coverage, regression
 ├── 05-performance-and-scalability/
 ├── 06-reliability-and-observability/
 ├── 07-data-management/
@@ -52,14 +52,15 @@ harness/
 | Security review | `security owasp agentic authz bola injection` |
 | Bug fix | `bugfix regression error` |
 | Performance | `query cache n+1 async` |
+| **Tests (unit / integration / E2E)** | `test contract unit integration e2e` — read `contract-first-tests.md` first |
 | Agent self-governance | `token context agent verify` |
 
-## File inventory (61 modular rules)
+## File inventory (77 modular rules)
 
 All files under `rules/` include YAML frontmatter with `triggers`. See `manifest.yaml` for the full index.
 
 ### 00-core (3) · 01-clean-code (7) · 02-architecture (7) · 03-security (28 files: 15 core + 10 agentic + 3 index)
-### 04-testing (5) · 05-performance (4) · 06-reliability (4) · 07-data (4)
+### 04-testing (6) · 05-performance (4) · 06-reliability (4) · 07-data (4)
 ### 08-devops (4) · 09-ai-agent (4) · 10-api (3) · 11-docs (3)
 
 ## Install in another project

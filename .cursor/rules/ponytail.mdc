@@ -37,7 +37,7 @@ The ladder runs **after** you understand the problem: read the task and the code
 
 Understanding the problem, input validation at trust boundaries, error handling that prevents data loss, **security (OWASP)**, **accessibility**, anything explicitly requested.
 
-Non-trivial logic leaves **one** runnable check (assert demo or small test). Trivial one-liners need no test.
+Non-trivial logic leaves **one** runnable contract test (assert or small test file) — must fail if code breaks the rule. See `04-testing/contract-first-tests.md`. Trivial one-liners need no test.
 
 ## Harness compatibility
 

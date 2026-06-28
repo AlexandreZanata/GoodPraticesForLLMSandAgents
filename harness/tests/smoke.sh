@@ -81,6 +81,9 @@ assert_file "$ROOT/THIRD_PARTY_NOTICES.md"
 assert_file "$ROOT/rules/00-core/size-and-complexity-limits.md"
 assert_file "$ROOT/.cursor/rules/size-and-complexity-limits.mdc"
 assert_file "$ROOT/rules/09-ai-agent-specific/minimal-implementation.md"
+assert_file "$ROOT/rules/04-testing/contract-first-tests.md"
+assert_file "$ROOT/.cursor/rules/test-contract-policy.mdc"
+assert_file "$ROOT/.cursor/rules/ponytail.mdc"
 if [[ ! -f "$ROOT/.cursor/rules/headroom-integration.mdc" ]]; then
   pass "headroom-integration.mdc removed"
 else
@@ -96,6 +99,11 @@ else
 fi
 
 # --- resolve-rules.sh ---
+assert_output_contains \
+  "resolve-rules test contract includes contract-first-tests.md" \
+  "04-testing/contract-first-tests.md" \
+  "$HARNESS_DIR/resolve-rules.sh" test contract
+
 assert_output_contains \
   "resolve-rules yagni includes minimal-implementation.md" \
   "09-ai-agent-specific/minimal-implementation.md" \

@@ -116,6 +116,7 @@ Base rules always loaded (see `rules/manifest.yaml` → `always_apply`):
 
 - `AGENT-CORE-PRINCIPLES.md`
 - `size-and-complexity-limits.md`
+- `contract-first-tests.md`
 - `token-economy.md`
 - `anti-hallucination.md`
 

@@ -7,6 +7,7 @@ version: 1
 always_apply:
   - AGENT-CORE-PRINCIPLES.md
   - 00-core/size-and-complexity-limits.md
+  - 04-testing/contract-first-tests.md
   - 09-ai-agent-specific/token-economy.md
   - 09-ai-agent-specific/anti-hallucination.md
 
@@ -190,6 +191,10 @@ rules:
   - id: sec.agentic.asi10
     path: 03-security/agentic/rogue-agents.md
     triggers: [agentic, rogue, monitoring, kill-switch, asi10]
+
+  - id: test.contract-first
+    path: 04-testing/contract-first-tests.md
+    triggers: [test, tests, unit, e2e, integration, contract, tdd, automated, regression]
 
   - id: test.tdd
     path: 04-testing/tdd.md

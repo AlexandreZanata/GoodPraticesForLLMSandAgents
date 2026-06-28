@@ -217,6 +217,24 @@ Full rule: `rules/00-core/size-and-complexity-limits.md`
 
 ---
 
+## 16. CONTRACT-FIRST TESTS (MANDATORY)
+
+Before writing, editing, or deleting **any** test:
+
+1. Read `rules/04-testing/contract-first-tests.md`
+2. Derive assertions from contract (GIVEN/WHEN/THEN, API contract, use case) — **never from implementation**
+3. Tests are immutable unless the contract changes
+
+| Layer | ~Share | Automation |
+|-------|--------|------------|
+| Unit | 75% | CI on every commit |
+| Integration | 20% | CI on every commit |
+| E2E | 5% | CI for critical journeys |
+
+**If test and code disagree, fix the code** — or formally change the contract first.
+
+---
+
 ## CHECKLIST FOR ANY NEW PROJECT
 
 Before writing the first line of code:
@@ -231,6 +249,8 @@ Before writing the first line of code:
 - [ ] Are use cases documented with actor, flow, and preconditions?
 - [ ] Is the API contract sketched?
 - [ ] Does the domain glossary exist?
+- [ ] **Test strategy** — unit + integration + E2E automated in CI (`04-testing/contract-first-tests.md`)
+- [ ] **Contract tests** — business rules have GIVEN/WHEN/THEN tests that fail if code breaks contract
 
 If any item is blank, the agent **must ask before implementing** — never assume.
 

@@ -36,6 +36,17 @@
 
 ---
 
+## Testing (contract-first)
+
+- [ ] **Policy read** — `agent-rules/04-testing/contract-first-tests.md` understood before any test
+- [ ] **Unit tests** — domain rules, VOs, state machines (GIVEN/WHEN/THEN)
+- [ ] **Integration tests** — use cases + adapters (in-memory / test DB)
+- [ ] **E2E tests** — critical user journeys documented in `docs/use-cases/` (automated in CI)
+- [ ] **CI** — all test layers run automatically on every PR
+- [ ] **No mirror tests** — assertions from contract/spec, never copied from production code
+
+---
+
 ## Sign-off
 
 | Role | Name | Date |

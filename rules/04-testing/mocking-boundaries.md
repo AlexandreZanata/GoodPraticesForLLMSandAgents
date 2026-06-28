@@ -10,6 +10,7 @@ alwaysApply: false
 # Mocking Boundaries
 
 > Mock external I/O only — never mock the system under test.
+> **Prerequisite:** read `contract-first-tests.md` before writing any test.
 
 ## Mock / fake
 

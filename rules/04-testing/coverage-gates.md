@@ -9,6 +9,7 @@ alwaysApply: false
 # Coverage Gates
 
 > Numeric thresholds per layer — domain highest.
+> **Prerequisite:** read `contract-first-tests.md`. Coverage measures contract tests — not mirrored code.
 
 ## Minimum thresholds
 
